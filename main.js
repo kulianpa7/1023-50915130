@@ -167,17 +167,17 @@ async function startGame(selectedDifficulty, brick, gamble) {
         ballSpeed = 2;
         brickRowCount = 4;
         brickColumnCount = 6;
-        maxLives = 111;
-    } else if (difficulty === 'medium') {
-        ballSpeed = 2;
-        brickRowCount = 4;
-        brickColumnCount = 6;
         maxLives = 5;
-    } else if (difficulty === 'hard') {
-        ballSpeed = 2;
+    } else if (difficulty === 'medium') {
+        ballSpeed = 3;
         brickRowCount = 4;
         brickColumnCount = 6;
-        maxLives = 1;
+        maxLives = 4;
+    } else if (difficulty === 'hard') {
+        ballSpeed = 4;
+        brickRowCount = 4;
+        brickColumnCount = 6;
+        maxLives = 3;
     }
     // 初始化兩個玩家的遊戲狀態
     for (let i = 0; i < 2; i++) {
