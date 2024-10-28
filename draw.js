@@ -71,9 +71,9 @@ const blueThemeColors = [
     "#ADD8E6"  // 淺藍
 ];
 const bricksTheme = {
-    "background1.jpg": whiteThemeColors,
-    "background2.jpg": greenThemeColors,
-    "background3.jpg": blueThemeColors,
+    "background1.webp": whiteThemeColors,
+    "background2.webp": greenThemeColors,
+    "background3.webp": blueThemeColors,
 }
 function drawBricks(playerIndex) {
     const offset = playerIndex === 0 ? 0 : canvas.width / 2;

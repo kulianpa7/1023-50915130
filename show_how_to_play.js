@@ -28,10 +28,3 @@ async function showInstructions() {
         backdrop: false, // 禁用點擊背景關閉彈出框
     });
 }
-// 在開始遊戲前添加說明按鈕
-window.onload = function () {
-    const instructionButton = document.createElement('button');
-    instructionButton.textContent = '遊戲說明';
-    instructionButton.onclick = showInstructions;
-    document.getElementById('gameMenu').appendChild(instructionButton);
-};
