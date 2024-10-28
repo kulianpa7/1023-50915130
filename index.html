@@ -10,6 +10,7 @@
   <title>Two Player Arkanoid Game</title>
   <style>
     body {
+      user-select: none;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,7 +73,9 @@
         font-size: 16px;
       }
     }
-    .player1,.player2{
+
+    .player1,
+    .player2 {
       padding-left: 10px;
       margin-bottom: 5px;
       border-radius: 20px;
@@ -103,6 +106,7 @@
         <p>其他操作：</p>
         <button onclick="clearbest()">清除最好成績</button>
         <button onclick="showInstructions()">遊戲說明</button>
+        <button onclick="showMD()">完成的項目</button>
       </div>
     </div>
   </div>
@@ -189,7 +193,13 @@
       });
       $(".player1-record").text("0");
       $(".player2-record").text("0");
-      alert("最好成績已清除！");
+      Swal.fire({
+        title: '提示',
+        text: '最好成績已清除！',
+        icon: 'info', // 你可以使用 'success', 'error', 'warning', 'info', 或 'question'
+        confirmButtonText: '確認',
+        backdrop: true, // 顯示背景
+      });
     }
   </script>
   <script>
@@ -220,13 +230,13 @@
 </style>
 
 <script>
-$(".btn-10, .btn-11, .btn-12").on('click', function() {
-  // Remove 'selected' class from all buttons
-  $(".btn-10, .btn-11, .btn-12").removeClass("selected");
-  
-  // Add 'selected' class to the clicked button
-  $(this).addClass("selected");
-});
+  $(".btn-10, .btn-11, .btn-12").on('click', function() {
+    // Remove 'selected' class from all buttons
+    $(".btn-10, .btn-11, .btn-12").removeClass("selected");
+
+    // Add 'selected' class to the clicked button
+    $(this).addClass("selected");
+  });
   // 獲取音量控制條
   const volumeSlider = document.getElementById('volumeSlider');
 
@@ -240,18 +250,21 @@ $(".btn-10, .btn-11, .btn-12").on('click', function() {
 
 
 <style>
-  .btn-10.selected{
+  .btn-10.selected {
     background-color: #5af1ff2c;
     border-color: aqua;
   }
-  .btn-11.selected{
+
+  .btn-11.selected {
     background-color: #5af1ff2c;
     border-color: aqua;
   }
-  .btn-12.selected{
+
+  .btn-12.selected {
     background-color: #5af1ff2c;
     border-color: aqua;
   }
+
   .btn-10 {
     position: relative;
     color: #000000;

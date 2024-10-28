@@ -346,7 +346,7 @@ async function draw(effect) {
                         await showGameOverAlert(winner, players[0].score, players[1].score);
                     } else {
                         // 顯示單人遊戲結束
-                        await showSinglePlayerGameOver(i,Math.max(players[0].score,players[1].score));
+                        await showSinglePlayerGameOver(i, Math.max(players[0].score, players[1].score));
                     }
                 } else {
                     resetPlayerBall(i);
@@ -389,16 +389,14 @@ async function checkWinCondition() {
 function drawTrail(playerIndex) {
     const player = players[playerIndex];
 
-    if (difficulty === 'easy') {
-        player.trailPositions.forEach((pos, index) => {
-            const opacity = (index + 1) / player.trailPositions.length;
-            ctx.beginPath();
-            ctx.arc(pos.x, pos.y, ballRadius * (opacity * 0.8), 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${playerIndex === 0 ? '0, 149, 221' : '221, 149, 0'}, ${opacity * 0.5})`;
-            ctx.fill();
-            ctx.closePath();
-        });
-    }
+    player.trailPositions.forEach((pos, index) => {
+        const opacity = (index + 1) / player.trailPositions.length;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, ballRadius * (opacity * 0.8), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${playerIndex === 0 ? '0, 149, 221' : '221, 149, 0'}, ${opacity * 0.5})`;
+        ctx.fill();
+        ctx.closePath();
+    });
 }
 //---------------
 // 新增軌跡更新函數
@@ -406,13 +404,11 @@ function drawTrail(playerIndex) {
 function updateTrail(playerIndex) {
     const player = players[playerIndex];
 
-    if (difficulty === 'easy' && frameCount % TRAIL_INTERVAL === 0) {
-        player.trailPositions.push({
-            x: player.x,
-            y: player.y
-        });
-        if (player.trailPositions.length > TRAIL_LENGTH) {
-            player.trailPositions.shift();
-        }
+    player.trailPositions.push({
+        x: player.x,
+        y: player.y
+    });
+    if (player.trailPositions.length > TRAIL_LENGTH) {
+        player.trailPositions.shift();
     }
 }
